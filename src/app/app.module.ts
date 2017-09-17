@@ -9,13 +9,15 @@ import { HomePage } from '../pages/home/home';
 import {FirstPage} from '../pages/first/first';
 import { HttpModule } from '@angular/http';
 import { RegisterPage } from '../pages/register/register';
+import { Home2Page } from '../pages/home2/home2';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     FirstPage,
-    RegisterPage
+    RegisterPage,
+    Home2Page
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,8 @@ import { RegisterPage } from '../pages/register/register';
     MyApp,
     HomePage,
     FirstPage,
-    RegisterPage
+    RegisterPage,
+    Home2Page
 
   ],
   providers: [
@@ -37,3 +40,4 @@ import { RegisterPage } from '../pages/register/register';
   ]
 })
 export class AppModule {}
+

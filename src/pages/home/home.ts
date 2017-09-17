@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { RegisterPage } from '../register/register'
+import { Home2Page } from '../home2/home2';
 import 'rxjs/add/operator/map';
 @Component({
 
@@ -12,9 +13,10 @@ import 'rxjs/add/operator/map';
 export class HomePage 
 {
 	posts:any={};
-    data:any={};
+  data:any={};
 	@ViewChild('username') username;
 	@ViewChild('password') password;
+
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public http: Http) 
   {
@@ -29,13 +31,12 @@ export class HomePage
       'usu':this.username.value,
       'pass':this.password.value
     }
-    this.http.post('http://localhost/planificador/login.php', datos).subscribe
+    this.http.post('http://192.168.250.13/planificador/login.php', datos).subscribe
   (data =>
 
     {
       this.data.response = data["_body"];
 
-      console.log(data["_body"]);
       if(data["_body"] == '404')
       {
 
@@ -48,12 +49,41 @@ export class HomePage
 
           alert.present();
       }
+      else
+      {
+        /*let alert = this.alertCtrl.create
+        ({
+              title: 'Login Exitoso',
+              subTitle: 'El nombre de usuario no existe regristrese o verifique sus datos',
+              buttons: ['OK']
+          });
+
+        alert.present();*/
+        var ServerJson = JSON.parse(data["_body"]);
+        var json =
+        {
+          id: ServerJson['id_miembro'],
+          username: ServerJson['nom_usuario'],
+          email:ServerJson['email']
+        }
+        console.log(json);
+        this.navCtrl.setRoot(Home2Page, json);
+
+      }
       
 
     },
     error => 
     {
-      console.log("Ooops!");
+         let alert = this.alertCtrl.create
+        ({
+              title: 'Error',
+              subTitle: error,
+              buttons: ['OK']
+          });
+
+        alert.present();
+
     }
 
   );
@@ -63,5 +93,4 @@ export class HomePage
   {
      this.navCtrl.push(RegisterPage);
   }
-
 }
