@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title #nombre> Bienvenido ¡Pa' ya!, #nombre </ion-title>
+    <ion-title #nombre> Bienvenido ¡Pa' ya!, {{nom}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,4 +15,5 @@
 
 <ion-content padding>
 
+<button ion-button color="primary" block (click) = "cambiarValor()">Cambiar</button>
 </ion-content>

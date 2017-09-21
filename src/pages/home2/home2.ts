@@ -18,17 +18,29 @@ export class Home2Page
 {
 
 	@ViewChild('nombre') nombre;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+	public id:string;
+	public nom:string;
+	public ema:string;
+  constructor(public navCtrl: NavController, public navParams: NavParams) 
+  {
   	 let id = navParams.get('id');
-     let name = navParams.get('username');
+     this.nom = navParams.get('username');
      let email = navParams.get('email');
-     this.nombre = name.value;
-
+     this.nombre = name;
+     console.log(this.nombre);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Home2Page');
 
   }
+
+  cambiarValor()
+  {
+  	var a;
+  	a++;
+  	this.nom=a.value;
+  }
+
 
 }
