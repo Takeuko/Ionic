@@ -3,6 +3,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { RegisterPage } from '../register/register'
 import 'rxjs/add/operator/map';
+import {PreChatPage} from '../pre-chat/pre-chat';
 @Component({
 
 
@@ -62,6 +63,11 @@ export class HomePage
   GoToRegister()
   {
      this.navCtrl.push(RegisterPage);
+  }
+
+  IraChat()
+  {
+    this.navCtrl.push(PreChatPage);
   }
 
 }

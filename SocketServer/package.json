@@ -1,0 +1,22 @@
+{
+  "name": "chatroom",
+  "version": "0.0.1",
+  "description": "El mejor chat de todos mejorr que wasapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "pinche comando"
+  },
+  "repository": {
+    "type": "git",
+    "url": "no es necesario"
+  },
+  "keywords": [
+    "2"
+  ],
+  "author": "Guajiros",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.4",
+    "socket.io": "^2.0.3"
+  }
+}
