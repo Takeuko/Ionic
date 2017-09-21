@@ -10,6 +10,8 @@ import {FirstPage} from '../pages/first/first';
 import { HttpModule } from '@angular/http';
 import { RegisterPage } from '../pages/register/register';
 import { Home2Page } from '../pages/home2/home2';
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { Home2Page } from '../pages/home2/home2';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    SocketIoModule.forRoot(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
