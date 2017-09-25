@@ -66,7 +66,6 @@ export class HomePage
           username: ServerJson['nom_usuario'],
           email:ServerJson['email']
         }
-        console.log(json);
         this.navCtrl.setRoot(Home2Page, json);
 
       }

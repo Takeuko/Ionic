@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Socket } from 'ng-socket-io';
 import {ChatRoomPage} from '../chat-room/chat-room';
-
+import {ProyectosPage} from '../proyectos/proyectos';
 
 @IonicPage()
 @Component({
@@ -19,17 +19,13 @@ export class Home2Page
   nickname='';
   constructor(public navCtrl: NavController, public navParams: NavParams, private socket:Socket) 
   {
-  	 let id = navParams.get('id');
+  	 this.id = navParams.get('id');
      this.nom = navParams.get('username');
      let email = navParams.get('email');
      this.nombre = name;
      console.log(this.nombre);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Home2Page');
-
-  }
 
   joinChat() {
     this.socket.connect();
@@ -37,7 +33,14 @@ export class Home2Page
     this.navCtrl.push('ChatRoomPage', { nickname: this.nickname });
   }
 
-
+  IrAProyectos()
+  {
+    var json =
+    {
+      id:this.id
+    }
+    this.navCtrl.push(ProyectosPage, json);
+  }
 }
 /*
 import { Component } from '@angular/core';

@@ -10,6 +10,7 @@ import {FirstPage} from '../pages/first/first';
 import { HttpModule } from '@angular/http';
 import { RegisterPage } from '../pages/register/register';
 import { Home2Page } from '../pages/home2/home2';
+import {ProyectosPage} from '../pages/proyectos/proyectos';
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
 const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
 
@@ -19,7 +20,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
     HomePage,
     FirstPage,
     RegisterPage,
-    Home2Page
+    Home2Page,
+    ProyectosPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
     HomePage,
     FirstPage,
     RegisterPage,
-    Home2Page
+    Home2Page,
+    ProyectosPage
 
   ],
   providers: [
