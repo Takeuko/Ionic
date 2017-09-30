@@ -95,7 +95,7 @@ public ValidarPass()
   	}  
 
     
-	this.http.post('http://192.168.250.13/planificador/registro.php', datos).subscribe
+	this.http.post('http://192.168.250.30/planificador/registro.php', datos).subscribe
 	(data =>
 
 		{

@@ -15,8 +15,9 @@ import { Http } from '@angular/http';
 })
 export class ProyectosPage 
 {
-
+  public proyectos;
   public cant_proyectos;
+  public nombre_proyecto;
   public id;
   public json;
   data:any={};
@@ -27,26 +28,37 @@ export class ProyectosPage
 
   
 
-  ionViewDidLoad() 
+  ionViewWillEnter() //Start
   {
     var datos =
     {
       'id':this.id
+
     }
-    this.http.post('http://192.168.250.13/planificador/proyecto.php', datos).subscribe
+    
+
+    this.http.post('http://192.168.250.30/planificador/proyecto.php', datos).subscribe
   (data =>
 
     {
       this.data.response = data["_body"];
+      //console.log(data["_body"]);
+      this.proyectos = JSON.parse(data["_body"]);
+      console.log(this.proyectos[1]);
+      //this.nombre_proyecto = this.proyectos.nombre;
 
+      /*
         let alert = this.alertCtrl.create
         ({
-              title: 'Cantidad de proyectos:',
+              title: 'Info de proyectos:',
               subTitle: data["_body"],
               buttons: ['OK']
           });
-
-          alert.present();
+         /* for (var i=0; i<data["_body"]; i++) {
+            this.proyectos.push(i);
+          }
+          console.log(data["_body"]);
+          alert.present();*/
       },
     error => 
     {
@@ -60,7 +72,7 @@ export class ProyectosPage
         alert.present();
 
     }
-
+    
   );
   }
 }

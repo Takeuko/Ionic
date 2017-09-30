@@ -31,7 +31,7 @@ export class HomePage
       'usu':this.username.value,
       'pass':this.password.value
     }
-    this.http.post('http://192.168.250.13/planificador/login.php', datos).subscribe
+    this.http.post('http://192.168.250.30/planificador/login.php', datos).subscribe
   (data =>
 
     {
