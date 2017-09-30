@@ -12,7 +12,7 @@ import { RegisterPage } from '../pages/register/register';
 import { Home2Page } from '../pages/home2/home2';
 import {ProyectosPage} from '../pages/proyectos/proyectos';
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
-const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
+const config: SocketIoConfig = { url: 'http://192.168.250.30:3001', options: {} };
 
 @NgModule({
   declarations: [
